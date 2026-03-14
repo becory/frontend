@@ -6,6 +6,19 @@
 }
 
 @theme inline {
+  --color-primary: #C9191D;
+  --color-bg-AA: #F4F4F6;
+  --color-bg-AAA: #FFFFFF;
+  --color-text-AA: #000000B2;
+  --color-text-A: #00000080;
+  --color-text-AAA: #000000E5;
+  --color-text--AAA: #FFFFFF;
+  --color-divider-AA: #0000000D;
+  --color-bg-button: #EDEDF1;
+  --color-palette-brand-400: #D63F3C;
+  --color-palette-gray-100: #EDEDF1;
+  --color-palette-black-10: #0000001A;
+  --color-palette-black-5: #0000000D;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
