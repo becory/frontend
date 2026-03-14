@@ -1,4 +1,5 @@
 import { Layout, Tabs, TabItem } from "@/components";
+import { Divider } from "@/components/Divider";
 import { Filter } from "@/components/Filter";
 import { List } from "@/components/List";
 import { ListItem } from "@/components/ListItem";
@@ -32,6 +33,7 @@ export default function Home() {
             <ListItem></ListItem>
             <ListItem></ListItem>
             <ListItem></ListItem>
+            <Divider />
           </List>
         </Layout>
       </div>
