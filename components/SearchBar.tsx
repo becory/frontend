@@ -22,7 +22,14 @@ export const SearchBar = (props: SearchBarProps) => {
           </div>
           <input className="w-full" placeholder="請輸入關鍵字"></input>
         </div>
-        <button onClick={() => setSearchToggle(!searchToggle)}>取消</button>
+        <div className="items-center">
+          <button
+            className="text-theme-text-link font-normal text-base leading-6"
+            onClick={() => setSearchToggle(!searchToggle)}
+          >
+            取消
+          </button>
+        </div>
       </div>
       {children}
       <div
