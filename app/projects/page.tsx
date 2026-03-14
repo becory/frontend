@@ -1,4 +1,4 @@
-import { Layout, Tabs, TabItem } from "@/components";
+import { Tabs, TabItem } from "@/components";
 import { Divider } from "@/components/Divider";
 import { Filter } from "@/components/Filter";
 import { List } from "@/components/List";
