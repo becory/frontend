@@ -1,16 +1,43 @@
-import { Layout, Tabs, TabItem } from "@/components";
-import { Divider } from "@/components/Divider";
-import { Filter } from "@/components/Filter";
-import { List } from "@/components/List";
-import { ListItem } from "@/components/ListItem";
-import { SearchBar } from "@/components/SearchBar";
+"use client";
+import {
+  Tabs,
+  TabItem,
+  Divider,
+  Filter,
+  List,
+  ListItem,
+  NotFound,
+  SearchBar,
+  Loading,
+} from "@/components";
 import { menu } from "@/menu";
-import Link from "next/link";
+import { useCharities } from "@/resource/useCharities";
+import { useState } from "react";
+import useInfiniteScroll from "react-infinite-scroll-hook";
 
 export default function Home() {
+  const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState(10);
+  const [q, setQ] = useState("");
+  const { loading, data, hasNext } = useCharities(page, limit, q);
+
+  const handleLoadMore = () => {
+    setPage((page) => page + 1);
+  };
+
+  const handleOnSearch = (q) => {
+    setQ(q);
+    setPage(1);
+  };
+
+  const [infinitRef, { rootRef }] = useInfiniteScroll({
+    loading,
+    onLoadMore: handleLoadMore,
+    hasNextPage: hasNext,
+  });
   return (
     <>
-      <SearchBar filter={<Filter />}>
+      <SearchBar filter={<Filter />} onSearch={handleOnSearch}>
         <Tabs>
           {menu.map((item) => (
             <TabItem href={item.href} key={item.href}>
@@ -19,18 +46,23 @@ export default function Home() {
           ))}
         </Tabs>
       </SearchBar>
-      <List>
-        <ListItem></ListItem>
-        <ListItem></ListItem>
-        <ListItem></ListItem>
-        <ListItem></ListItem>
-        <ListItem></ListItem>
-        <ListItem></ListItem>
-        <ListItem></ListItem>
-        <ListItem></ListItem>
-        <ListItem></ListItem>
-        <ListItem></ListItem>
-        <Divider />
+      {loading && page == 1 && (
+        <div className="flex flex-auto my-59">
+          <Loading />
+        </div>
+      )}
+      {q && data.length == 0 && <NotFound />}
+      <List ref={rootRef}>
+        {data.map((item) => (
+          <ListItem name={item.name} key={item.id} logo={item.logo}>
+            {item.description}
+          </ListItem>
+        ))}
+        {hasNext ? (
+          <Loading ref={infinitRef} />
+        ) : (
+          data.length > 0 && <Divider />
+        )}
       </List>
     </>
   );

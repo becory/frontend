@@ -1,16 +1,33 @@
 "use client";
-import { ReactNode, useState } from "react";
-import { TabItem } from "./TabItem";
-import { Tabs } from "./Tabs";
+import { ChangeEvent, KeyboardEvent, ReactNode, useState } from "react";
 
 interface SearchBarProps {
   children: ReactNode;
   filter: ReactNode;
+  onSearch: (q: string) => void;
 }
 
 export const SearchBar = (props: SearchBarProps) => {
-  const { children, filter } = props;
+  const { children, filter, onSearch } = props;
+  const [inputValue, setInputValue] = useState("");
   const [searchToggle, setSearchToggle] = useState(false);
+
+  const handleOnChange = (
+    e: ChangeEvent<HTMLInputElement, HTMLInputElement>,
+  ) => {
+    setInputValue(e.target.value);
+  };
+
+  const handleOnKeyDown = (e: KeyboardEvent) => {
+    if (e.key === "Enter") onSearch(inputValue);
+  };
+
+  const handleOnClickCancel = () => {
+    setSearchToggle(!searchToggle);
+    setInputValue("");
+    onSearch("");
+  };
+
   return (
     <div className={`flex flex-col ${!searchToggle && "gap-3"}`}>
       <div
@@ -20,12 +37,18 @@ export const SearchBar = (props: SearchBarProps) => {
           <div>
             <img src="search.svg" />
           </div>
-          <input className="w-full" placeholder="請輸入關鍵字"></input>
+          <input
+            className="w-full"
+            placeholder="請輸入關鍵字"
+            value={inputValue}
+            onChange={handleOnChange}
+            onKeyDown={handleOnKeyDown}
+          ></input>
         </div>
         <div className="items-center">
           <button
             className="text-theme-text-link font-normal text-base leading-6"
-            onClick={() => setSearchToggle(!searchToggle)}
+            onClick={handleOnClickCancel}
           >
             取消
           </button>

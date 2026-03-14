@@ -6,3 +6,5 @@ export * from "./Filter";
 export * from "./List";
 export * from "./ListItem";
 export * from "./SearchBar";
+export * from "./NotFound";
+export * from "./Loading";
