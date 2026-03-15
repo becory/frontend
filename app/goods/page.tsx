@@ -16,7 +16,7 @@ export default function goods() {
           ))}
         </Tabs>
       </SearchBar>
-      <NotFound />
+      <NotFound title="目前沒有義賣商品" />
     </>
   );
 }

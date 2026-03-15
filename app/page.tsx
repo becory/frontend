@@ -51,7 +51,9 @@ export default function Home() {
           <Loading />
         </div>
       )}
-      {q && data.length == 0 && <NotFound />}
+      {q && data.length == 0 && (
+        <NotFound title="查無相關資料" description="請調整關鍵字再重新搜尋" />
+      )}
       <List ref={rootRef}>
         {data.map((item) => (
           <ListItem name={item.name} key={item.id} logo={item.logo}>

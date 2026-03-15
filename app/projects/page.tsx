@@ -1,19 +1,6 @@
 "use client";
-import {
-  Tabs,
-  TabItem,
-  Divider,
-  Filter,
-  List,
-  ListItem,
-  NotFound,
-  SearchBar,
-  Loading,
-} from "@/components";
+import { Tabs, TabItem, Filter, NotFound, SearchBar } from "@/components";
 import { menu } from "@/menu";
-import { useCharities } from "@/resource/useCharities";
-import { useState } from "react";
-import useInfiniteScroll from "react-infinite-scroll-hook";
 
 export default function Projects() {
   const handleOnSearch = (q: string) => {};
@@ -29,7 +16,7 @@ export default function Projects() {
           ))}
         </Tabs>
       </SearchBar>
-      <NotFound />
+      <NotFound title="目前沒有捐款項目" />
     </>
   );
 }
