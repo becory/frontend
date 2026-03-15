@@ -25,7 +25,7 @@ export default function Home() {
     setPage((page) => page + 1);
   };
 
-  const handleOnSearch = (q) => {
+  const handleOnSearch = (q: string) => {
     setQ(q);
     setPage(1);
   };
