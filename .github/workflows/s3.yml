@@ -11,6 +11,9 @@ permissions:
 
 jobs:
   deploy:
+    environment:
+      name: production
+      url: https://d1cdm1glqbkaza.cloudfront.net/
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
