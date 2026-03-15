@@ -3,7 +3,7 @@ interface NotFoundProps {
   description?: string;
 }
 
-export const NotFound = (props) => {
+export const NotFound = (props: NotFoundProps) => {
   const { title, description } = props;
   return (
     <div className="flex flex-col my-15 justify-center items-center gap-4.5 ">
