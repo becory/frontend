@@ -24,11 +24,9 @@ jobs:
           cache-dependency-path: package-lock.json
 
       - name: Install dependencies
-        working-directory: frontend
         run: npm ci
 
       - name: Build
-        working-directory: frontend
         run: npm run build
 
       - name: Configure AWS Credentials
