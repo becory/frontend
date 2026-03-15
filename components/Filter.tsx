@@ -1,7 +1,7 @@
 export const Filter = () => {
   return (
     <div>
-      <button className="flex gap-0.75 py-1.5 px-3 bg-palette-gray-100 rounded-md">
+      <button className="flex gap-0.75 py-1.5 px-3 bg-palette-gray-100 rounded-md cursor-pointer">
         <div className="text-text-AA font-medium text-sm leading-[22px]">
           全部
         </div>

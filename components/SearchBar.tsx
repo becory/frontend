@@ -47,7 +47,7 @@ export const SearchBar = (props: SearchBarProps) => {
         </div>
         <div className="items-center">
           <button
-            className="text-theme-text-link font-normal text-base leading-6"
+            className="text-theme-text-link font-normal text-base leading-6 cursor-pointer"
             onClick={handleOnClickCancel}
           >
             取消
@@ -60,7 +60,7 @@ export const SearchBar = (props: SearchBarProps) => {
       >
         {filter}
         <button
-          className="p-2 rounded-full bg-palette-gray-100"
+          className="p-2 rounded-full bg-palette-gray-100 cursor-pointer"
           onClick={() => setSearchToggle(!searchToggle)}
         >
           <img src="search.svg" />

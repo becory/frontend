@@ -23,7 +23,7 @@ export const TabItem = (props: TabItemProps) => {
 
   return (
     <div
-      className={`flex flex-col h-11 flex-auto justify-center items-center ${active || activeNow ? activeText : defaultText}`}
+      className={`flex flex-col h-11 flex-auto justify-center items-center cursor-pointer ${active || activeNow ? activeText : defaultText}`}
       onClick={handleTabClick}
     >
       <div className="flex relative h-full items-center">
