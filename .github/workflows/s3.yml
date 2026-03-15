@@ -29,7 +29,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          NEXT_PUBLIC_API_HOST: "/api"
+          NEXT_PUBLIC_API_HOST: "https://d1cdm1glqbkaza.cloudfront.net"
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
